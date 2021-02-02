@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 /src/react-app-env.d.ts
@@ -28,5 +28,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # Editor
-.idea/
-.vscode
+.idea/settings.json
+.vscode/settings.json
