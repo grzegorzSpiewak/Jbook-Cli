@@ -1,0 +1,60 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["react-hooks"],
+  "rules": {
+    "eqeqeq": ["error", "always", {"null": "ignore"}],
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+    "max-len": ["error", { "code": 150 }],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "dot-notation": "error",
+    "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "react/react-in-jsx-scope": "off",
+    "no-await-in-loop": ["error"],
+    "no-param-reassign": "error",
+    "react/self-closing-comp": "error",
+    "semi" : [2, "always"],
+    "@typescript-eslint/semi": ["error"],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "ignore"
+    }],
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": {
+        "delimiter": "semi",
+        "requireLast": true
+      },
+      "singleline": {
+        "delimiter": "semi",
+        "requireLast": true
+      }
+    }]
+  },
+  "settings":  {
+    "react":  {
+      "version":  "detect"
+    }
+  },
+  "globals": {
+    "VERSION": true
+  }
+}
