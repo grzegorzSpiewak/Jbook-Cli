@@ -4,7 +4,6 @@
 node_modules
 /.pnp
 .pnp.js
-react-app-env.d.ts
 
 # production
 build
