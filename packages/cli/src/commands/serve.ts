@@ -2,6 +2,8 @@ import path from 'path';
 import { Command } from 'commander';
 import { serve } from 'local-api';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export const serveCommand = new Command()
   .command('serve [filename]')
   .description('Open a file for editing')
@@ -13,7 +15,8 @@ export const serveCommand = new Command()
       await serve(
         parseInt(options.port),
         path.basename(filename),
-        dir
+        dir,
+        !isProduction
       );
     } catch (err) {
       console.log(err.message);
