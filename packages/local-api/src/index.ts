@@ -1,5 +1,11 @@
-export const serve = (port: number, filename: string, dir: string): void => {
-  console.log('serving traffic on port:', port);
-  console.log('storing data from cells in', filename);
-  console.log('that file is in dir', dir);
+import express from 'express';
+
+export const serve = (port: number, filename: string, dir: string): void | PromiseLike<void> => {
+  const app = express();
+
+  return new Promise<void>((resolve, reject) => {
+    app
+      .listen(port, resolve)
+      .on('error', reject);
+  });
 };
