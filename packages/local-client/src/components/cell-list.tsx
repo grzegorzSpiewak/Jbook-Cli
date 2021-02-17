@@ -10,8 +10,7 @@ const CellList: FunctionComponent = () => {
 
   useEffect(() => {
     fetchCells();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchCells]);
 
   const renderedCells = cells.map(cell => (
     <Fragment key={cell.id}>
