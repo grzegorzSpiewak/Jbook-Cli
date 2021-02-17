@@ -1,7 +1,7 @@
 import produce from 'immer';
 import { ActionType } from 'state/aciton-types';
 import { Action } from 'state/actions';
-import { Cell } from 'state/cell';
+import { Cell } from 'state';
 interface CellsState {
   loading: boolean;
   error: string | null;
@@ -60,6 +60,29 @@ const reducer = produce((
         state.order.splice(foundIndex + 1, 0, cell.id);
       }
  
+      return state;
+    case ActionType.FETCH_CELLS:
+      state.loading = true;
+      state.error = null;
+
+      return state;
+    case ActionType.FETCH_CELLS_COMPLETE:
+      state.loading = false;
+      state.order = action.payload.map(({ id }) => id);
+      state.data = action.payload.reduce((acc, cell) => {
+        acc[cell.id] = cell;
+        return acc;
+      }, {} as CellsState['data']);
+
+      return state;
+    case ActionType.FETCH_CELLS_ERROR:
+      state.loading = false;
+      state.error = action.payload;
+
+      return state;
+    case ActionType.SAVE_CELLS_ERROR:
+      state.error = action.payload;
+      
       return state;
     default:
       return state;
