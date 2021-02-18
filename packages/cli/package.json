@@ -1,20 +1,28 @@
 {
-  "name": "cli",
+  "name": "storecode",
   "version": "1.0.0",
+  "bin": "dist/index.js",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc --watch --preserveWatchOutput"
+    "start": "tsc --watch --preserveWatchOutput",
+    "prepublishOnly": "esbuild src/index.ts --platform=node --outfile=dist/index.js --bundle --minify --define:process.env.NODE=\\\"pruduction\\\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^7.0.0",
-    "local-api": "^1.0.0"
+    "@storecode/local-client": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",
+    "esbuild": "0.8.26",
     "typescript": "^4.1.3"
   }
 }
