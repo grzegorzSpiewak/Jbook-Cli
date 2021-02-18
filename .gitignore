@@ -23,3 +23,6 @@ yarn-error.log*
 # Editor
 .idea/settings.json
 .vscode/settings.json
+
+# Filles
+./packages/cli/notebook.js
